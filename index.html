@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua African Billing Statement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<div class="container">
+    <h2>Aqua African Billing Statement</h2>
+ 
+    <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" placeholder="Enter full name">
+        <div id="nameError" class="error">Please enter a valid customer name.</div>
+    </div>
+ 
+    <div class="form-group">
+        <label for="consumption">Water Consumption (Cubic Meters)</label>
+        <input type="number" id="consumption" placeholder="e.g., 25" min="0">
+        <div id="consumptionError" class="error">Consumption must be a positive number.</div>
+    </div>
+ 
+    <div class="form-group">
+        <label for="customerType">Customer Type</label>
+        <select id="customerType">
+            <option value="Regular">Regular</option>
+            <option value="Senior Citizen">Senior Citizen (25% Discount)</option>
+            <option value="Solo Parent">Solo Parent (15% Discount)</option>
+        </select>
+    </div>
+ 
+    <div class="button-group">
+        <button onclick="processBill()" id="btnGenerate" class="btn-primary">Generate Bill & Save</button>
+        <button onclick="resetCurrent()" id="btnReset" class="btn-reset">Reset</button>
+    </div>
+ 
+    <div id="billingStatement">
+        <h3>Billing Statement</h3>
+        <p><strong>Name:</strong> <span id="outName"></span></p>
+        <p><strong>Consumption:</strong> <span id="outConsumption"></span> m³</p>
+        <p><strong>Customer Type:</strong> <span id="outType"></span></p>
+        <hr>
+        <p><strong>Gross Amount:</strong> ₱<span id="outGross"></span></p>
+        <p><strong>Discount Applied:</strong> - ₱<span id="outDiscount"></span></p>
+        <p><strong>Total Amount Due:</strong> <strong>₱<span id="outTotal"></span></strong></p>
+    </div>
+ 
+    <div class="counter-box">
+        Transactions Processed: <strong id="transactionCount">0</strong>
+    </div>
+ 
+    <div id="transactionLog">
+        <strong>Recent Transactions (Session History):</strong>
+        <ul id="logList"></ul>
+    </div>
+</div>
+ 
+<script src="script.js"></script>
+ 
+</body>
+</html>
